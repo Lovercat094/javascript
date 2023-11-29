@@ -1,49 +1,68 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='./css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='./js/main.js'></script>
 </head>
+
 <body>
-   <header>
-       <nav id="nav">
-           <a href="#">cadastro de alunos</a>
-       </nav>
-   </header> 
-   <section id="table">
-       <form action="">
-           <div class="mb-3">
-               <label for="nome">nome</label>
-               <input type="text" id="nome" placeholder="digite o seu nome" required>
-           </div>
-           <div class="mb-3">
-               <label for="e-mail">e-mail</label>
-               <input type="email" id="e-mail" required placeholder="digite seu e-mail">
-           </div>
-           <div class="mb-3">
-               <label for="telefone">telefone</label>
-               <input type="number" id="telefone" placeholder="digite seu telefone" required> 
-           </div>
-           <div class="mb-3">
-               <label for="ocupacao">ocupacao</label>
-               <input type="text" id="ocupacao" placeholder="digite sua ocupação" required>
-           </div>
-           <button type="submit">adicionar</button>
-           <button type="submit">iniciar gráfico pizza</button>
-       </form>
-       <hr>
-       <table id="mytable" border="1">
-           <tr>cod</tr>
-           <tr>nome</tr>
-           <tr>email</tr>
-           <tr>telefone</tr>
-           <tr>ocupacao</tr>
-           <tr>acao</tr>
-       </table>
-   </section>
+    <header>
+        <nav id="nav">
+            <a href="#">Cadastro de alunos</a>
+        </nav>
+    </header>
+    <section id="table">
+        <form method="POST">
+            <div class="mb-3">
+                <label for="nome">Nome</label>
+                <input id="nome" type="text" placeholder="insira o seu nome" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="insira o seu email" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="telefone">Telefone</label>
+                <input id="telefone" type="number" placeholder="insira o numero de telefone" required>
+            </div>
+
+            <div class="mb3">
+                <label for="profissao">Profissao</label>
+                <input id="profissao" type="text" placeholder="insira a sua ocupacao" required>
+            </div>
+
+            <button type="button" onclick="adicionar()"> Adicionar </button>
+            <button type="submit">iniciar grafico piczza</button>
+        </form>
+        <hr>
+
+        <table id="myTable" border="1">
+            <tr id="0">
+                <th>cod</th>
+                <th>nome</th>
+                <th>email</th>
+                <th>telefone</th>
+                <th>profissao</th>
+                <th>acao</th>
+            </tr>
+          
+        </table>
+
+
+
+
+
+
+
+
+    </section>
 </body>
+
 </html>
