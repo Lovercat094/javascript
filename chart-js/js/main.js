@@ -118,3 +118,32 @@ const initPieChart = () => {
         }
     );
 };
+const removeChart = () => {
+    const divChart = document.querySelector('.chart')
+    document.getElementById("myChart").remove();
+    const myChart = document.createElement("canvas");
+}
+
+const initPolarAreaChart = () => {
+    removerChart();
+    // 1 passo: pegar o elemento #myChart
+    const ctx = document.getElementById('myChart');
+
+    //2 passo: definir os dados do grafico
+    const data = {
+        labels: ['Frontend', 'Backend', 'Fullstack','Mobile'],
+        datasets: [{
+            label: 'Quantidade',
+            data: [ 11, 15, 7, 3],
+            backgroundColor: ['pink', 'lightblue', 'lightgreen', 'orange']
+        }]
+    };
+
+    const polarAreaChart = new Chart(
+        ctx,
+        {
+            type: 'polarArea',
+            data: data
+        }
+    );
+};
