@@ -1,30 +1,54 @@
+import { handleErrors } from "./exeptions.js";
+
 var URL = "http://localhost:3000/jogos"
 
-import { handleErrors } from "./exeption.js";
+export const getAllGames = async () => {
 
-export const getAllGames = () => {
-    const fetchData = async () => {
-        try {
-            // Fazendo uma solicitação GET para obter produtos da AP
-            const response =
-                await fetch(URL);
-            //lidando com oerros na resposta
-            handleErrors(response);
+    try {
+        
+        // Fazendo uma solicitação GET para obter produtos da AP
+        const response = await fetch(URL);
+        
+        //lidando com oerros na resposta
+        handleErrors(response);
 
-            //converter os dados para json
-            const data = await response.json();
+        //converter os dados para json
+        return  await response.json();
 
-            //exibir os dados na pagina html
-            data.forEach(jogo => {
-                const tagDiv =
-                    document.createElement('div');
-                tagDiv.innerHTML =
-                    `<strong>${jogo.nome}</strong><p>${jogo.preco}</p>`;
-                dataContainer.appendChild(tagDiv);
-            });
+    } catch (error) {
+        console.log('Error >>>', error);
+    }
 
-        } catch (error) {
-            console.log('Error >>>', error);
-        }
-    };
-}
+},
+
+export const createGame = async (game) => {
+    fetch('http://localhost:3000/jogos', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jogoTeste)
+    })
+        .then(response => response.json())
+        .then(data => console.log('sucesso: ', data))
+        .catch((error) => console.log('Erro: ', error));
+
+};
+
+export const deleteGame = async (game) => {
+    fetch(URL+`/${game.id}`, { method: 'DELETE'})
+    .then(response => response.json())
+    .then(data => console.log('Success:', data))
+    .catch(error => console.error('Error:', error));
+};
+
+export const updateGame = async (game) => {
+    fetch(URL + `/${game.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'Application/json' },
+        body: JSON.stringify(game)
+    })
+        .then(response => response.json())
+        .then(data => console.log('Success:', data))
+        .catch(error => console.error('Error:', error));
+};
